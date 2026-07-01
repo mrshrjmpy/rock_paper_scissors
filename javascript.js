@@ -1,48 +1,57 @@
-let inputField="";
-console.log("hello world");
-
-function pickRandom()
-{
-    let a=Math.random();
-    if(a < 0.33)
+function getComputerChoice(){
+    choice_value = Math.random(0,1);
+    if (choice_value < 0.33)
     {
         return "rock";
     }
-    else if(a <0.66)
+    else if (choice_value < 0.66)
     {
         return "paper";
     }
-    else
-    {
+    else {
         return "scissors";
     }
 }
 
-function checkWinner(myPick, userPick)
+function startGame()
 {
-    if (myPick === userPick)
+    var userChoice = prompt("enter choice");
+    var computerChoice = getComputerChoice();
+    if(computerChoice == userChoice)
     {
-        console.log("Tie!");
+        console.log("Draw!");
     }
-    else if(myPick == "rock" && userPick == "paper" || myPick == "scissors" && userPick == "rock" || myPick == "paper" && userPick == "scissors")
+    else if (computerChoice == "rock")
     {
-        console.log("U win");
+        console.log("my choice:" + computerChoice);
+        if(userChoice == "paper")
+        {
+            console.log("You win!");
+        }
+        else {
+            console.log("i win!");
+        }
     }
-    else{
-        console.log("I win");
-
+    else if(computerChoice == "paper")
+    {
+        console.log("my choice:" + computerChoice);
+        if(userChoice == "scissors")
+        {
+            console.log("You win!");
+        }
+        else {
+            console.log("i win!");
+        }
     }
-    console.log("I picked " + myPick);
-    console.log("U picked " + userPick);
+    else if (computerChoice == "scissors")
+    {
+        console.log("my choice:" + computerChoice);
+        if(userChoice == "rock")
+        {
+            console.log("You win!");
+        }
+        else {
+            console.log("i win!");
+        }
+    }
 }
-
-function getValue() {
-    inputField = document.getElementById("input");
-
-    let value = inputField.value;
-    alert("Input value: " + value);
-    console.log(checkWinner(pickRandom(),value));
-}
-
-
-
