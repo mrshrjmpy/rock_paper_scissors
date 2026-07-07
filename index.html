@@ -5,9 +5,17 @@
         <title>Rock paper scissors</title>
     </head>
     <body>
-        <p>Choose rock paper or scissors</p>
-        <button onclick="startGame()">click me</button>
-
+        <div id="menu">
+            <p>Choose rock paper or scissors</p>
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+        <div id="result">
+            <p id="mychoice">My choice: </p>
+            <p id="winner">Winner: </p>
+            <p id="gameWinner"></p>
+        </div>
         <script src="javascript.js"></script>
     </body>
 </html>

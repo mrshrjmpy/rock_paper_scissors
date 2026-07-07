@@ -19,54 +19,68 @@ function getComputerChoice(){
 
 function playRound(userChoice, computerChoice)
 {
+    if (userScore > 5 || computerScore > 5)
+    {
+        const gamewinner = document.querySelector("#gameWinner");
+        gamewinner.textContent = userScore > computerScore ? "I am the winner" : "You are the winner";
+        return;
+    }
+
+    const mychoice = document.querySelector("#mychoice");
+    const winner = document.querySelector("#winner");
+    mychoice.textContent = computerChoice;
     if(computerChoice == userChoice)
     {
-        console.log("my choice:" + computerChoice);
-        console.log("Draw!");
+        winner.textContent="Draw!";
     }
     else if (computerChoice == "rock")
     {
-        console.log("my choice:" + computerChoice);
         if(userChoice == "paper")
         {
-            console.log("You win!");
+            winner.textContent = "You win!";
             userScore ++;
         }
         else {
-            console.log("i win!");
+            winner.textContent = "I win!";
             computerScore ++;
         }
     }
     else if(computerChoice == "paper")
     {
-        console.log("my choice:" + computerChoice);
         if(userChoice == "scissors")
         {
-            console.log("You win!");
+            winner.textContent="You win!";
             userScore ++;
         }
         else {
-            console.log("i win!");
+            winner.textContent = "I win!";
             computerScore ++; 
         }
     }
     else if (computerChoice == "scissors")
     {
-        console.log("my choice:" + computerChoice);
         if(userChoice == "rock")
         {
-            console.log("You win!");
+            winner.textContent = "You win!";
             userScore ++;
         }
         else {
-            console.log("i win!");
+            winner.textContent = "I win!";
             computerScore ++;
         }
     }
 
+
 }
 
-function startGame()
+menu.addEventListener('click', (event) => {
+    let target = event.target;
+
+    playRound(target.id,getComputerChoice());
+});
+
+
+/*function startGame()
 {
 
     while(count < 5)
@@ -89,4 +103,4 @@ function startGame()
     else {
         console.log("Draw game!");
     }
-}
+} */
